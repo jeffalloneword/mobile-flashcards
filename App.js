@@ -9,7 +9,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.container}>Choose a Deck!</Text>
+        <Text>Choose a Deck!</Text>
         <DeckList />
       </View>
     );

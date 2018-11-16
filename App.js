@@ -3,14 +3,29 @@ import { StyleSheet, Text, View } from 'react-native';
 import DeckList from './components/DeckList'
 import { purple, white } from './utils/colors'
 import Deck from './components/Deck'
+import FlashCard from './components/FlashCard'
 
 
 export default class App extends React.Component {
+  state = {
+    nav: 'card'
+  }
+
   render() {
+    const getDisplay = () => {
+      switch (this.state.nav) {
+        case 'card':
+          return <FlashCard/>
+        case 'deck':
+          return <DeckList/>
+        default:
+          return <DeckList/>
+      }
+    }
+
     return (
       <View style={styles.container}>
-        <Text>Choose a Deck!</Text>
-        <DeckList />
+        { getDisplay() }
       </View>
     );
   }

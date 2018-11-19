@@ -1,17 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { connect, Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './reducers'
 import DeckList from './components/DeckList'
 import { purple, white } from './utils/colors'
-import Deck from './components/Deck'
 import FlashCard from './components/FlashCard'
 
-
-export default class App extends React.Component {
+export default class App extends Component {
   state = {
-    nav: 'card'
+    nav: 'card',
   }
 
-  render() {
+  componentDidMount () {
+
+  }
+
+  render () {
     const getDisplay = () => {
       switch (this.state.nav) {
         case 'card':
@@ -24,10 +29,12 @@ export default class App extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        { getDisplay() }
-      </View>
-    );
+      <Provider store={createStore(reducer)}>
+        < View style={styles.container}>
+          {getDisplay()}
+        </View>
+      </Provider>
+    )
   }
 }
 
@@ -75,4 +82,4 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
   }
-});
+})

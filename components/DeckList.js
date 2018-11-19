@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, Button } from 'react-native'
-import { orange } from '../utils/colors'
+import { View, StyleSheet, Text } from 'react-native'
 
 export default function DeckList () {
 
@@ -20,7 +19,6 @@ export default function DeckList () {
       </View>
     </View>
   )
-
 }
 
 const styles = StyleSheet.create({
@@ -30,4 +28,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //justifyContent: 'center',
   },
-});
+})
